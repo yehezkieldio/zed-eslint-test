@@ -1,0 +1,42 @@
+{
+    "format_on_save": "on",
+    "language_servers": ["!biome", "typescript-language-server", "json-language-server"],
+    "lsp": {
+        "biome": {
+            "settings": {
+                "require_config_file": true
+            }
+        }
+    },
+    "languages": {
+        "JSONC": {
+            "language_servers": ["json-language-server"]
+        },
+        "JavaScript": {
+            "language_servers": ["typescript-language-server", "eslint"],
+            "external": {
+                "command": "prettier",
+                "arguments": ["--stdin-filepath", "{buffer_path}"]
+            },
+            "format_on_save": "on",
+            "code_actions_on_format": {
+                "source.fixAll.eslint": true,
+                "source.removeUnusedImports": true,
+                "source.organizeImports": true
+            }
+        },
+        "TypeScript": {
+            "language_servers": ["typescript-language-server", "eslint"],
+            "external": {
+                "command": "prettier",
+                "arguments": ["--stdin-filepath", "{buffer_path}"]
+            },
+            "format_on_save": "on",
+            "code_actions_on_format": {
+                "source.fixAll.eslint": true,
+                "source.removeUnusedImports": true,
+                "source.organizeImports": true
+            }
+        }
+    }
+}
