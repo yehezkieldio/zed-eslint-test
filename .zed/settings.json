@@ -38,5 +38,8 @@
                 "source.organizeImports": true
             }
         }
+    },
+    "file_types": {
+        "JSONC": [".swcrc", ".prettierrc"]
     }
 }

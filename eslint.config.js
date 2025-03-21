@@ -6,30 +6,30 @@ import globals from "globals";
 import tseslint from "typescript-eslint";
 
 export default defineConfig([
-    globalIgnores(["**/node_modules/**", "**.json"]),
+    globalIgnores(["**/node_modules/**", "**/dist/**", "**/build/**", "**.json"]),
     { files: ["**/*.{js,mjs,cjs,ts}"] },
     {
         files: ["**/*.{js,mjs,cjs,ts}"],
         languageOptions: {
             globals: {
                 ...globals.node,
-                ...globals.jest
+                ...globals.jest,
             },
             ecmaVersion: 5,
             sourceType: "module",
             parserOptions: {
                 projectService: true,
-                tsconfigRootDir: import.meta.dirname
-            }
+                tsconfigRootDir: import.meta.dirname,
+            },
         },
         plugins: {
-            perfectionist
-        }
+            perfectionist,
+        },
     },
     {
         files: ["**/*.{js,mjs,cjs,ts}"],
         plugins: { js },
-        extends: ["js/recommended"]
+        extends: ["js/recommended"],
     },
     ...tseslint.configs.recommendedTypeChecked,
     eslintPluginPrettierRecommended,
@@ -38,7 +38,7 @@ export default defineConfig([
             "@typescript-eslint/no-explicit-any": "off",
             "@typescript-eslint/no-floating-promises": "warn",
             "@typescript-eslint/no-unsafe-argument": "warn",
-            "perfectionist/sort-imports": "error"
-        }
-    }
+            "perfectionist/sort-imports": "error",
+        },
+    },
 ]);
